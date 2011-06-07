@@ -1,0 +1,29 @@
+{
+  "platforms": {
+  },
+  "suggestions": {
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "conflicting": {
+  },
+  "description": "Installs/Configures gitolite",
+  "recipes": {
+  },
+  "providing": {
+  },
+  "dependencies": {
+  },
+  "version": "0.0.1",
+  "attributes": {
+  },
+  "maintainer": "YOUR_COMPANY_NAME",
+  "replacing": {
+  },
+  "maintainer_email": "YOUR_EMAIL",
+  "name": "gitolite",
+  "groupings": {
+  },
+  "recommendations": {
+  },
+  "license": "All rights reserved"
+}

@@ -1,0 +1,45 @@
+= DESCRIPTION:
+  Installs and configures gitolite in a "multi-cuisine restaurant"
+
+= REQUIREMENTS:
+  git
+  user databags with ssh public-keys
+
+= ATTRIBUTES:
+  Expects node['gitolite'] to be an array of hashes containing the name of the gitolite user to setup as well as the admin user of that account.
+
+  The name of the admin user will be used to lookup a databag item( in 'users') to read the users ssh_key attribute for use in initializing the gitolite admin.
+
+  f.e.
+
+  ~> knife node show gitolite.rocketlabsdev.com
+  {
+    "normal": {
+      "gitolite": [
+        {
+          "name": "account1",
+          "admin": "dan"
+        },
+        {
+          "name": "account2",
+          "admin": "dan"
+        }
+      ],
+    ...
+    "run_list": [
+      "recipe[gitolite::default]"
+    ],
+    "chef_type": "node"
+  }
+
+
+
+
+  ~> knife data bag show users dan
+  {
+    "id": "dan",
+    "ssh_key": "..."
+  }
+
+= USAGE:
+
