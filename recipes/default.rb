@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package 'git'
+require_recipe "git"
 
 bash 'install_gitolite' do
   cwd "/tmp"
