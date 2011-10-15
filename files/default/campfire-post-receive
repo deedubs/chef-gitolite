@@ -1,0 +1,3 @@
+while read old_rev new_rev ref; do
+  ruby hooks/campfire-hook.rb $ref $old_rev $new_rev
+done
