@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-package 'git'
+require_recipe "git"
 
 bash 'install_gitolite' do
   cwd "/tmp"
