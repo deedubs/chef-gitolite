@@ -66,8 +66,28 @@ gitolite_instances.each do |instance|
     command "/usr/local/bin/gl-setup /tmp/gitolite-#{admin_name}.pub"
     environment ({'HOME' => "/home/#{username}"})
   end
+  
+  unless instance['campfire'].empty?
+    gem_package "tinder"
+    username = instance['name']
+
+    template "/home/#{username}/.gitolite/hooks/common/campfire-hook.rb" do
+      source "campfire-hook.rb.erb"
+      mode 0755
+      owner username
+      variables( :campfire => instance['campfire'] )
+    end
+
+    cookbook_file "/home/#{username}/.gitolite/hooks/common/campfire-notification.rb" do
+      source "campfire-notification.rb"
+      mode 0755
+      owner username
+    end
+
+    cookbook_file "/home/#{username}/.gitolite/hooks/common/post-receive" do
+      source "campfire-post-receive"
+      mode 0755
+      owner username
+    end
+  end
 end
-
-
-
-
